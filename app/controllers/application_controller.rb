@@ -31,7 +31,7 @@ end
 def authenticate_user
   unless user_logged_in?
     flash[:error] = "You must log in to access this page."
-    redirect_to home_path
+    redirect_to home_url
   end
 end
 end

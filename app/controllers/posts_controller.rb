@@ -20,13 +20,16 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+    unless @post.user == current_user
+      redirect_to home_path, notice: "This post doesn't belong to you!"
   end
+end
 
   # POST /posts
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-
+    @post.user = current_user
     respond_to do |format|
       if @post.save
         format.html { redirect_to user_post_path(@post.user, @post), notice: 'Post was successfully created.' }

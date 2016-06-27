@@ -9,19 +9,11 @@
   </head>
 
   <body>
-    <% if user_logged_in? %>
-      <h2>Hello, <%= current_user.email %></h3>
-        <%= link_to "Sign Out", sign_out_path, method: :delete %>
-        <%= link_to "New Post", new_user_post_path(current_user) %>
-      <% else %>
-        <%= link_to "Sign In", sign_in_path %>
-    <% end %>
     <% flash.each do |name, message| %>
       <div class="flash-message flash-message-<%= name %>">
         <%= message %>
       </div>
     <% end %>
-    <%= link_to 'Sign Up', new_user_path %>
     <%= yield %>
   </body>
 </html>
