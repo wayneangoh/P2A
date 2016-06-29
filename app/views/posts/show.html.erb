@@ -1,5 +1,4 @@
-<p id="notice"><%= notice %></p>
-
+<!-- <p id="notice"><%= notice %></p> -->
 <p>
   <strong>Title:</strong>
   <%= @post.title %>
@@ -12,7 +11,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @post.user %>
+  <%= @post.user.email %>
 </p>
 
 <%= link_to 'Edit', edit_user_post_path(@post) %> |

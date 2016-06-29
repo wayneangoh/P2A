@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
         session[:user_id] = user.id
         redirect_to home_path, notice: "Logged In"
+
     else
       flash.now.alert = "Couldn't sign you in. Please check your email and password."
         render "new"
